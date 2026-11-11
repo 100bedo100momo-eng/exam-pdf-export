@@ -1,0 +1,443 @@
+/**
+ * تنسيقات الطباعة للامتحانات - Exam Print Styles
+ */
+
+@page {
+  margin: 10mm;
+  size: A4 portrait;
+  counter-increment: page;
+}
+
+@page {
+  @bottom-center {
+    content: "صفحة " counter(page) " من " counter(pages);
+    font-family: 'Tajawal', 'Cairo', sans-serif;
+    font-size: 10pt;
+    color: #666;
+  }
+}
+
+@media print {
+  .no-print,
+  .print-hide,
+  .print\:hidden,
+  button,
+  nav,
+  .controls,
+  .toolbar,
+  .pagination,
+  .export-btn,
+  .nav-bar,
+  .sidebar,
+  .header-actions,
+  .footer-actions,
+  [data-no-print="true"],
+  [data-print-hide="true"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    left: -9999px !important;
+  }
+
+  html, body {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .question,
+  .option,
+  .answer,
+  .exam-section,
+  .question-block,
+  .mcq-item,
+  .question-card,
+  .answer-area,
+  .fill-in-blank,
+  .essay-question,
+  .multiple-choice,
+  .true-false,
+  .matching-item,
+  .code-block,
+  .diagram,
+  .table-container,
+  .formula,
+  .equation,
+  .page-break-avoid,
+  .question-group {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .page-break-before,
+  .exam-cover-page,
+  .new-section,
+  .section-break {
+    break-before: always !important;
+    page-break-before: always !important;
+  }
+
+  .page-break-after,
+  .section-end,
+  .chapter-end {
+    break-after: always !important;
+    page-break-after: always !important;
+  }
+
+  .avoid-break,
+  .keep-together {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  * {
+    font-family: 'Tajawal', 'Cairo', 'Amiri', 'Noto Sans Arabic', 'Noto Kufi Arabic', system-ui, sans-serif !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt !important;
+    line-height: 1.6 !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+    color: black !important;
+  }
+
+  h1 { font-size: 20pt !important; }
+  h2 { font-size: 16pt !important; }
+  h3 { font-size: 14pt !important; }
+  h4 { font-size: 12pt !important; }
+
+  p, li, td, th, label, span, div {
+    color: black !important;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #666;
+  }
+
+  a[href^="#"]::after {
+    content: "";
+  }
+
+  img {
+    max-width: 100% !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  table {
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+
+  tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  thead {
+    display: table-header-group !important;
+  }
+
+  tfoot {
+    display: table-footer-group !important;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  textarea,
+  select {
+    border: 1px solid #ccc !important;
+    background: white !important;
+    color: black !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    width: 12pt !important;
+    height: 12pt !important;
+    border: 1px solid #333 !important;
+    margin-right: 6pt !important;
+  }
+
+  input[type="radio"] {
+    border-radius: 50% !important;
+  }
+
+  input[type="checkbox"] {
+    border-radius: 2pt !important;
+  }
+
+  input[type="radio"]:checked::before {
+    content: "●";
+    display: block;
+    text-align: center;
+    line-height: 10pt;
+    font-size: 10pt;
+    color: black;
+  }
+
+  input[type="checkbox"]:checked::before {
+    content: "✓";
+    display: block;
+    text-align: center;
+    line-height: 10pt;
+    font-size: 10pt;
+    color: black;
+  }
+
+  #exam-content-area,
+  .exam-content,
+  .exam-container,
+  [id*="exam"] {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .exam-section {
+    margin-bottom: 15mm !important;
+    break-inside: avoid !important;
+  }
+
+  .exam-section h2 {
+    border-bottom: 2px solid #333 !important;
+    padding-bottom: 4pt !important;
+    margin-bottom: 8pt !important;
+  }
+
+  .question {
+    margin-bottom: 10mm !important;
+    padding: 8pt 0 !important;
+  }
+
+  .question h3,
+  .question h4 {
+    margin-bottom: 6pt !important;
+    font-weight: 600 !important;
+  }
+
+  .question-group {
+    margin-bottom: 15mm !important;
+    padding: 8pt 0 !important;
+  }
+
+  .options {
+    display: grid !important;
+    gap: 6pt !important;
+    margin-top: 8pt !important;
+  }
+
+  .option {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8pt !important;
+    padding: 6pt 8pt !important;
+    border: 1px solid #ddd !important;
+    border-radius: 4pt !important;
+    background: #fafafa !important;
+    break-inside: avoid !important;
+  }
+
+  .option:has(input:checked) {
+    background: #e8f5e9 !important;
+    border-color: #4caf50 !important;
+  }
+
+  .answer-area {
+    min-height: 80pt !important;
+    border: 1px dashed #999 !important;
+    border-radius: 4pt !important;
+    padding: 8pt !important;
+    margin-top: 8pt !important;
+    break-inside: avoid !important;
+  }
+
+  .formula,
+  .equation,
+  .math-expression {
+    font-family: 'Latin Modern Math', 'STIX Two Math', 'Cambria Math', serif !important;
+    background: #f5f5f5 !important;
+    padding: 4pt 8pt !important;
+    border-radius: 4pt !important;
+    display: inline-block !important;
+    break-inside: avoid !important;
+  }
+
+  pre, code {
+    background: #f5f5f5 !important;
+    border: 1px solid #ddd !important;
+    border-radius: 4pt !important;
+    font-family: 'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace !important;
+    font-size: 9pt !important;
+    line-height: 1.5 !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  pre {
+    padding: 8pt !important;
+    overflow: visible !important;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+  }
+
+  [dir="rtl"] {
+    direction: rtl !important;
+  }
+
+  [dir="rtl"] .options {
+    direction: rtl !important;
+  }
+
+  [dir="rtl"] .option {
+    flex-direction: row-reverse !important;
+  }
+
+  [dir="rtl"] input[type="radio"],
+  [dir="rtl"] input[type="checkbox"] {
+    margin-right: 0 !important;
+    margin-left: 6pt !important;
+  }
+}
+
+@media screen {
+  .exam-pdf-export-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+    font-family: inherit;
+    direction: rtl;
+  }
+
+  .exam-pdf-export-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+  }
+
+  .exam-pdf-export-btn:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  .exam-pdf-export-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .exam-pdf-export-btn:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
+
+  .spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .question {
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .question:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .option {
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .option:hover {
+    background-color: #f0f7ff;
+    border-color: #2563eb;
+  }
+
+  .option:has(input:checked) {
+    background-color: #e8f5e9;
+    border-color: #4caf50;
+  }
+}
+
+.print-hidden {
+  @media print {
+    display: none !important;
+  }
+}
+
+.screen-hidden {
+  @media screen {
+    display: none !important;
+  }
+}
+
+.break-before-page {
+  @media print {
+    break-before: always !important;
+    page-break-before: always !important;
+  }
+}
+
+.break-after-page {
+  @media print {
+    break-after: always !important;
+    page-break-after: always !important;
+  }
+}
+
+.break-avoid {
+  @media print {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+}
+
+.page-margin-10 { @media print { @page { margin: 10mm; } } }
+.page-margin-15 { @media print { @page { margin: 15mm; } } }
+.page-margin-20 { @media print { @page { margin: 20mm; } } }
+.page-margin-25 { @media print { @page { margin: 25mm; } } }
+
+.page-portrait { @media print { @page { size: A4 portrait; } } }
+.page-landscape { @media print { @page { size: A4 landscape; } } }
